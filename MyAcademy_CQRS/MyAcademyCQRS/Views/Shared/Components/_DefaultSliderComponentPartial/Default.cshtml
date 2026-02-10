@@ -1,0 +1,50 @@
+@using MyAcademyCQRS.CQRSPattern.Results.SliderResults
+@model List<GetSliderQueryResult>
+
+@{
+    int count = 1;
+}
+
+<section class="banner-section style-one">
+    <div class="banner-carousel owl-theme owl-carousel owl-dots-none nav-style-one">
+
+        @foreach (var item in Model)
+        {
+           
+            string styleClass = (count == 2) ? "style-two" : "style-one";
+
+            <div class="slide-item">
+                <div class="image-layer" style="background-image:url(@item.ImageUrl)"></div>
+
+                <div class="anim-icon">
+                    <div class="icon icon-1" style="background-image: url(/assets/images/icons/anim-icon-1.png);"></div>
+                    <div class="icon icon-2" style="background-image: url(/assets/images/icons/anim-icon-2.png);"></div>
+                    <div class="icon icon-3" style="background-image: url(/assets/images/icons/anim-icon-3.png);"></div>
+                    <div class="icon icon-4" style="background-image: url(/assets/images/shape/shape-1.png);"></div>
+                    <div class="icon icon-5" style="background-image: url(/assets/images/shape/shape-2.png);"></div>
+                </div>
+
+                <div class="auto-container">
+                    <div class="content-inner">
+                        <div class="content-box">
+                            <h1>@item.Title</h1>
+                            <p>@item.Description</p>
+                            <div class="btn-box">
+                                <a href="@item.ButtonUrl" class="banner-btn">Keşfet</a>
+                            </div>
+                        </div>
+
+                        <figure class="image-box @styleClass">
+                            <img src="~/assets/images/banner/banner-image-@(count).png" alt="">
+                        </figure>
+
+                    </div>
+                </div>
+            </div>
+
+            count++;
+            if (count > 3) { count = 1; }
+        }
+
+    </div>
+</section>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Bagery - Lezzetli Fırın Ürünleri</title>
+
+    <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="~/assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="~/assets/css/flaticon.css" rel="stylesheet">
+    <link href="~/assets/css/owl.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="~/assets/css/animate.css" rel="stylesheet">
+    <link href="~/assets/css/color.css" rel="stylesheet">
+    <link href="~/assets/css/nice-select.css" rel="stylesheet">
+    <link href="~/assets/css/global.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/responsive.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <div class="boxed_wrapper">
+
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">Kapat</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="B" class="letters-loading">B</span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="G" class="letters-loading">G</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="R" class="letters-loading">R</span>
+                            <span data-text-preloader="Y" class="letters-loading">Y</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-sidebar">
+            <div class="xs-sidebar-group info-group info-sidebar">
+                <ul class="social-links clearfix">
+                    <li class="navSidebar-button"><i class="icon fas fa-shopping-basket"></i><span>Şimdi Satın Al</span></li>
+                    <li><a href="/"><i class="icon fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                    <li><a href="/"><i class="icon fab fa-twitter"></i><span>Twitter</span></a></li>
+                    <li><a href="/"><i class="icon fab fa-google-plus-g"></i><span>Google+</span></a></li>
+                </ul>
+                <div class="xs-overlay xs-bg-black"></div>
+                <div class="xs-sidebar-widget">
+                    <div class="sidebar-widget-container">
+                        <div class="sidebar-content">
+                            <div class="single-box">
+                                <div class="title-box">
+                                    <h5>Yeni Ürünler</h5>
+                                </div>
+                                <div class="single-item">
+                                    <figure class="image"><a href="#"><img src="~/assets/images/resource/shop/product-1.jpg" alt=""></a></figure>
+                                    <div class="item-name clearfix">
+                                        <h6><a href="#">Kahve Şefi</a></h6>
+                                        <div class="bye-btn"><a href="#">Satın Al</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Component.InvokeAsync("_DefaultHeaderComponentPartial")
+
+        @RenderBody()
+
+        @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <span class="icon-Arrow-Up"></span>
+        </button>
+    </div>
+
+    <script src="~/assets/js/jquery.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/owl.js"></script>
+    <script src="~/assets/js/wow.js"></script>
+    <script src="~/assets/js/validation.js"></script>
+    <script src="~/assets/js/jquery.fancybox.js"></script>
+    <script src="~/assets/js/appear.js"></script>
+    <script src="~/assets/js/jquery.countTo.js"></script>
+    <script src="~/assets/js/scrollbar.js"></script>
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/js/nav-tool.js"></script>
+
+    <script src="~/assets/js/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (TempData["icon"] != null)
+    {
+        <script>
+            Swal.fire({
+                title: '@Html.Raw(TempData["title"])',
+                icon: '@TempData["icon"]',
+                input: undefined,
+                html: `
+                    <div style="text-align: left; font-size: 14px; color: #555;">
+                        <p style="text-align: center; font-size: 16px; margin-bottom: 10px; color: #333;">
+                            Siparişiniz bize ulaştı. Hazırlanmaya başlıyor! 🚀
+                        </p>
+                        <hr style="border-top: 1px dashed #ccc; margin: 10px 0;">
+                        <table style="width: 100%; margin-top: 10px;">
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Sipariş No:</strong></td>
+                                <td style="text-align: right;">#@TempData["OrderId"]</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Tarih:</strong></td>
+                                <td style="text-align: right;">@TempData["Date"]</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Ödeme Tipi:</strong></td>
+                                <td style="text-align: right;">Kapıda Ödeme</td>
+                            </tr>
+                            <tr style="border-top: 1px solid #eee;">
+                                <td style="padding-top: 10px; font-size: 18px; color: #d65d5d; font-weight: bold;">Toplam:</td>
+                                <td style="text-align: right; padding-top: 10px; font-size: 18px; color: #d65d5d; font-weight: bold;">@TempData["TotalPrice"] ₺</td>
+                            </tr>
+                        </table>
+                    </div>
+                `,
+                showConfirmButton: true,
+                confirmButtonText: 'Anasayfaya Dön',
+                confirmButtonColor: '#d65d5d',
+                background: '#fff url(/assets/images/background/pattern-1.png)',
+                backdrop: `rgba(0,0,0,0.4)`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Home/Index";
+                }
+            });
+        </script>
+    }
+
+</body>
+</html>

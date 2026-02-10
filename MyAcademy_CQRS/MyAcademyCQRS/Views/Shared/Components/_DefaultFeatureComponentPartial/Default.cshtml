@@ -1,0 +1,26 @@
+@model List<GetFeatureQueryResult>
+
+<section class="feature-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                    <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <div class="count-box" style="background-image: url(/assets/images/icons/icon-bg-2.png);">
+                                <h4>@item.Counter</h4>
+                            </div>
+                            <div class="inner">
+                                <h4>@item.Title</h4>
+                                <p>@item.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

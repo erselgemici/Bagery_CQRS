@@ -1,0 +1,44 @@
+@model MyAcademyCQRS.CQRSPattern.Results.NewsResults.GetNewsByIdQueryResult
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-edit"></i> Haberi Güncelle</h3>
+    <form method="post">
+        <input type="hidden" asp-for="NewsId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Haber Başlığı</label>
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Kategori</label>
+                <input type="text" asp-for="CategoryName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>Tarih</label>
+                <input type="date" asp-for="Date" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Yazar</label>
+                <input type="text" asp-for="Author" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Görsel URL</label>
+                <input type="text" asp-for="ImageUrl" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>İçerik / Açıklama</label>
+            <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-mint"><i class="fas fa-sync-alt"></i> Güncelle</button>
+    </form>
+</div>

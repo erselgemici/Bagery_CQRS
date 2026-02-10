@@ -1,0 +1,40 @@
+@model MyAcademyCQRS.CQRSPattern.Results.AboutResults.GetAboutByIdQueryResult
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-edit"></i> Hakkımızda Güncelle</h3>
+    <form method="post">
+        <input type="hidden" asp-for="AboutId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Başlık</label>
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Alt Başlık</label>
+                <input type="text" asp-for="SubTitle" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Ana Görsel URL</label>
+                <input type="text" asp-for="ImageUrl" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>İmza Görsel URL</label>
+                <input type="text" asp-for="SignatureUrl" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Açıklama (Metin)</label>
+            <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-mint"><i class="fas fa-sync-alt"></i> Güncelle</button>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+@model List<MyAcademyCQRS.Entities.AppUser>
+@{
+    ViewData["Title"] = "Kullanıcı Listesi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="admin-title mb-0" style="border:none; padding:0; margin:0;">
+            <i class="fas fa-users"></i> Kullanıcı Listesi
+        </h3>
+        <span class="badge" style="background: var(--bagery-salmon); font-size: 0.9em; padding: 10px 15px; border-radius: 30px;">
+            Toplam: @Model.Count Üye
+        </span>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">Kullanıcı Adı</th>
+                    <th>Ad Soyad</th>
+                    <th>E-Mail</th>
+                    <th style="text-align: right; padding-right: 20px;">Yetkilendirme</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="padding-left: 20px;">
+                            <div class="d-flex align-items-center">
+                                <div style="width: 40px; height: 40px; background: #fff5f2; color: var(--bagery-salmon); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: bold; font-size: 1.1em; border: 2px solid #ffebe6;">
+                                    @item.UserName.Substring(0, 1).ToUpper()
+                                </div>
+                                <span style="font-weight: 600; font-size: 1.05em;">@item.UserName</span>
+                            </div>
+                        </td>
+                        <td>@item.Name @item.Surname</td>
+                        <td style="color: #888;">@item.Email</td>
+                        <td style="text-align: right; padding-right: 20px;">
+                            <a href="/Admin/Role/AssignRole/@item.Id" class="btn btn-bagery-mint">
+                                <i class="fas fa-user-tag"></i> Rol Ata
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+@model int
+<header class="main-header style-one">
+    <div class="header-lower">
+        <div class="outer-box">
+            <div class="logo-box">
+                <figure class="logo"><a href="/"><img src="~/assets/images/logo.png" alt="Bagery Logo"></a></figure>
+            </div>
+            <div class="menu-area">
+                <div class="mobile-nav-toggler">
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                    <i class="icon-bar"></i>
+                </div>
+
+                <nav class="main-menu navbar-expand-md navbar-light">
+                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                        <ul class="navigation clearfix">
+                            <li><a href="/">Anasayfa</a></li>
+                            <li class="dropdown">
+                                <a href="/Shop/Index">Mağaza</a>
+                                <ul>
+                                    <li><a href="/Shop/Index">Tüm Ürünler</a></li>
+                                    <li><a href="#">Sepetim</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/About/Index">Hakkımızda</a></li>
+                            <li><a href="/Blog/Index">Blog</a></li>
+                            <li><a href="/Contact/Index">İletişim</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <ul class="menu-right-content clearfix">
+                <li class="search-box-outer">
+                    <div class="dropdown">
+                        <button class="search-box-btn" style="background-image: url(/assets/images/icons/icon-bg-1.png);" type="button" id="dropdownMenu3" data-toggle="dropdown"><i class="icon-Search"></i></button>
+                        <div class="dropdown-menu search-panel">
+                            <div class="form-container">
+                                <form method="post" action="#">
+                                    <div class="form-group">
+                                        <input type="search" name="search-field" placeholder="Ara..." required="">
+                                        <button type="submit" class="search-btn"><span class="fas fa-search"></span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="user-btn" title="Çıkış Yap">
+                        <a href="/Login/Logout" style="background-image: url(/assets/images/icons/icon-bg-1.png); color: red;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="user-btn" title="Giriş Yap">
+                        <a href="/Login/Index" style="background-image: url(/assets/images/icons/icon-bg-1.png);">
+                            <i class="icon-Profile"></i>
+                        </a>
+                    </li>
+                }
+
+                <li class="cart-btn">
+                    <a href="/Basket/Index" style="background-image: url(/assets/images/icons/icon-bg-1.png);">
+                        <i class="icon-Bag"></i>
+                        <span>@Model</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="sticky-header">
+        <div class="outer-box">
+            <div class="logo-box">
+                <figure class="logo"><a href="/"><img src="~/assets/images/small-logo.png" alt=""></a></figure>
+            </div>
+            <div class="menu-area">
+                <nav class="main-menu clearfix"></nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+        <div class="nav-logo"><a href="/"><img src="~/assets/images/logo-5.png" alt="" title=""></a></div>
+        <div class="menu-outer"></div>
+        <div class="contact-info">
+            <h4>İletişim</h4>
+            <ul>
+                <li>İstanbul, Türkiye</li>
+                <li><a href="tel:+905555555555">+90 555 555 55 55</a></li>
+                <li><a href="mailto:info@bagery.com">info@bagery.com</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

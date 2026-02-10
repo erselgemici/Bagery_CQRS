@@ -1,0 +1,210 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol - Bagery</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="~/assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bagery-mint: #9CD1CD;
+            --bagery-salmon: #E69B88;
+            --bagery-salmon-dark: #d48a77;
+        }
+
+        body {
+            background: linear-gradient(rgba(43, 33, 24, 0.4), rgba(43, 33, 24, 0.4)), url('/assets/images/background/page-title.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            padding: 20px 0;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+            border-top: 6px solid var(--bagery-salmon); /* SOMON ÇİZGİ */
+            animation: slideUp 0.8s ease-in-out;
+        }
+
+        @@keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-logo img {
+            max-width: 140px;
+            margin-bottom: 20px;
+        }
+
+        .sec-title h3 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .sec-title p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-radius: 50px;
+        }
+
+        .input-group-text {
+            background: #fff;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            padding-left: 20px;
+            color: var(--bagery-mint); /* MINT İKONLAR */
+            width: 45px;
+            justify-content: center;
+            font-size: 1.1em;
+        }
+
+        .form-control {
+            border: none;
+            height: 45px;
+            border-radius: 0 50px 50px 0;
+            padding-left: 10px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+            .form-control:focus {
+                box-shadow: none;
+                background: #fdfdfd;
+            }
+
+        .theme-btn-one {
+            background: linear-gradient(45deg, var(--bagery-salmon), var(--bagery-salmon-dark));
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(230, 155, 136, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+            .theme-btn-one:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(230, 155, 136, 0.6);
+                background: linear-gradient(45deg, var(--bagery-salmon-dark), var(--bagery-salmon));
+            }
+
+        .bottom-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+            .bottom-text a {
+                color: var(--bagery-salmon);
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+                .bottom-text a:hover {
+                    color: var(--bagery-salmon-dark);
+                }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="login-logo">
+            <a href="/"><img src="~/assets/images/logo.png" alt="Bagery Logo"></a>
+        </div>
+
+        <div class="sec-title">
+            <h3>Aramıza Katılın</h3>
+            <p>Lezzetli fırsatları kaçırmamak için hemen üye olun.</p>
+        </div>
+
+        <form method="post" action="/Login/Register">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" name="Name" class="form-control" placeholder="Adınız" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" name="Surname" class="form-control" placeholder="Soyadınız" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                <input type="text" name="UserName" class="form-control" placeholder="Kullanıcı Adı Belirleyin" required>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" name="Email" class="form-control" placeholder="E-Posta Adresiniz" required>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        <input type="text" name="City" class="form-control" placeholder="Şehir" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="password" class="form-control" placeholder="Şifre" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="theme-btn-one">Kayıt Ol</button>
+        </form>
+
+        <div class="bottom-text">
+            Zaten hesabınız var mı? <a href="/Login/Index">Giriş Yapın</a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.ContactInfoCommands.CreateContactInfoCommand
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-plus-circle"></i> İletişim Bilgisi Ekle</h3>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Telefon</label>
+                <input type="text" asp-for="Phone" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Email</label>
+                <input type="email" asp-for="Email" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Çalışma Saatleri</label>
+                <input type="text" asp-for="OpenHours" class="form-control" placeholder="Pzt-Cuma: 09:00 - 18:00" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Harita URL (Embed)</label>
+                <input type="text" asp-for="MapUrl" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Adres</label>
+            <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-primary"><i class="fas fa-save"></i> Kaydet</button>
+    </form>
+</div>

@@ -1,0 +1,136 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.ContactCommands.CreateContactCommand
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="page-title centred" style="background-image: url(/assets/images/background/page-title.jpg);">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="title">
+                <h1>Bize Ulaşın</h1>
+            </div>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/Home/Index">Anasayfa</a></li>
+                <li>İletişim</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section alternet-2 sec-pad" style="background-image: url(/assets/images/background/contact-3.jpg);">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <div class="col-lg-4 col-md-6 col-sm-12 info-column">
+                <div class="contact-info-inner">
+                    <div class="single-box">
+                        <h3>Çalışma Saatleri</h3>
+                        <ul class="list clearfix">
+                            <li>Hafta İçi: 09.30 – 18.00</li>
+                            <li>Pazar: Kapalı</li>
+                        </ul>
+                    </div>
+                    <div class="single-box">
+                        <h3>Adres Bilgileri</h3>
+                        <ul class="list clearfix">
+                            <li>Bağdat Caddesi No: 12 <br />Kadıköy, İstanbul</li>
+                            <li><a href="mailto:info@bagery.com">info@bagery.com</a></li>
+                            <li><a href="tel:02161234567">(0216) 123 45 67</a></li>
+                        </ul>
+                    </div>
+                    <div class="single-box">
+                        <h3>Sosyal Medya</h3>
+                        <ul class="social-links clearfix">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6 col-sm-12 form-column">
+                <div class="form-inner">
+                    <h3>Bir Mesaj Bırakın</h3>
+
+                    <form asp-controller="Contact" asp-action="SendMessage" method="post" class="default-form">
+                        <div class="row clearfix">
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" asp-for="Name" placeholder="Adınız Soyadınız *" required="">
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="email" asp-for="Email" placeholder="E-Posta Adresiniz *" required="">
+                            </div>
+
+                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                <input type="text" asp-for="Phone" placeholder="Telefon Numaranız">
+                            </div>
+
+                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                <input type="text" asp-for="Subject" placeholder="Konu *" required="">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <textarea asp-for="Message" placeholder="Mesajınız..." required=""></textarea>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                <button class="theme-btn-one" type="submit">Mesajı Gönder</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="google-map-section">
+    <div class="map-inner">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.650490016365!2d29.02166631569446!3d40.98906667930278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab863162793b3%3A0x289a0617300450a1!2zS2FkxLFrw7Y!5e0!3m2!1str!2str!4v1644321234567!5m2!1str!2str" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (TempData["MessageResult"] != null)
+{
+    <script>
+        Swal.fire({
+         
+            title: '<span style="color:#444; font-weight:600;">Teşekkürler!</span>',
+
+          
+            text: "@Html.Raw(TempData["MessageResult"])",
+
+            // İkon Ayarları (Somon Rengi)
+            icon: 'success',
+            iconColor: '#ff8a80',
+
+           
+            confirmButtonText: 'Tamam',
+            confirmButtonColor: '#ff8a80',
+            buttonsStyling: true,
+
+           
+            background: '#fff',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            },
+
+            
+            customClass: {
+                confirmButton: 'btn btn-lg',
+                popup: 'rounded-4 shadow-lg'
+            }
+        });
+    </script>
+}

@@ -1,0 +1,23 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.CategoryCommands.CreateCategoryCommand
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title">
+        <i class="fas fa-plus-circle"></i> Yeni Kategori Oluştur
+    </h3>
+
+    <form method="post">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <label style="font-weight: 500; color: #666; margin-bottom: 5px;">Kategori Adı</label>
+                <input type="text" asp-for="CategoryName" class="form-control" placeholder="Örn: Tatlılar, İçecekler..." required />
+            </div>
+        </div>
+
+        <button class="btn btn-bagery-primary">
+            <i class="fas fa-save"></i> Kaydet
+        </button>
+    </form>
+</div>

@@ -1,0 +1,81 @@
+@using MyAcademyCQRS.CQRSPattern.Results.PromotionResults
+@model List<GetPromotionQueryResult>
+
+@{
+    var promo1 = Model.ElementAtOrDefault(0); 
+    var promo2 = Model.ElementAtOrDefault(1); 
+    var promo3 = Model.ElementAtOrDefault(2); 
+}
+
+<section class="promotion-section sec-pad" style="background-image: url(/assets/images/background/gallery-1.jpg);">
+    <div class="auto-container">
+
+        <div class="sec-title centred">
+            <p>Kampanyalar</p>
+            <h2>Yaz Kampanyalarına <br />Göz Atın</h2>
+        </div>
+
+        @if (promo1 != null)
+        {
+            <div class="inner-box mb-50 wow slideInRight animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image-box clearfix mr-10">
+
+                            <figure class="image pull-left mr-10">
+                                <img src="@promo1.ImageUrl" alt="@promo1.Title" style="width: 270px; height: 400px; object-fit: cover;">
+                            </figure>
+
+                            <figure class="image pull-left">
+                                <img src="@(promo3 != null ? promo3.ImageUrl : promo1.ImageUrl)" alt="" style="width: 270px; height: 400px; object-fit: cover;">
+                            </figure>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content-box ml-10">
+                            <div class="price-box" style="background-image: url(/assets/images/icons/icon-bg-4.png);">
+                                <span>@promo1.Price ₺</span>
+                                <p>Sadece</p>
+                            </div>
+                            <h3>@promo1.Title</h3>
+                            <p>@promo1.Description</p>
+                            <div class="btn-box">
+                                <a href="/Shop/Index" class="theme-btn-two">Sipariş Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (promo2 != null)
+        {
+            <div class="inner-box wow slideInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content-box mr-10">
+                            <div class="price-box" style="background-image: url(/assets/images/icons/icon-bg-4.png);">
+                                <span>@promo2.Price ₺</span>
+                                <p>Sadece</p>
+                            </div>
+                            <h3>@promo2.Title</h3>
+                            <p>@promo2.Description</p>
+                            <div class="btn-box">
+                                <a href="/Shop/Index" class="theme-btn-two">Sipariş Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image-box ml-10">
+                            <figure class="image">
+                                <img src="@promo2.ImageUrl" alt="@promo2.Title" style="width: 100%; height: auto; object-fit: cover;">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>

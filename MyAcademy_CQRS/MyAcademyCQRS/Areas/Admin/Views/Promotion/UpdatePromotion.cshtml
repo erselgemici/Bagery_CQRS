@@ -1,0 +1,39 @@
+@model MyAcademyCQRS.CQRSPattern.Results.PromotionResults.GetPromotionByIdQueryResult
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-edit"></i> Kampanya Güncelle</h3>
+    <form method="post">
+        <input type="hidden" asp-for="PromotionId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Kampanya Başlığı</label>
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Fiyat</label>
+                <input type="number" step="0.01" asp-for="Price" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Görsel URL</label>
+            <input type="text" asp-for="ImageUrl" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Buton Yönlendirme Linki (ButtonUrl)</label>
+            <input type="text" asp-for="ButtonUrl" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Açıklama</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-mint"><i class="fas fa-sync-alt"></i> Güncelle</button>
+    </form>
+</div>

@@ -1,0 +1,75 @@
+@using MyAcademyCQRS.CQRSPattern.Results.ProductResults
+@model List<GetProductQueryResult>
+
+<div class="our-shop">
+    <div class="item-shorting clearfix">
+        <div class="left-column pull-left clearfix">
+            <div class="text"><p>Toplam @Model.Count ürün listeleniyor</p></div>
+        </div>
+        <div class="right-column pull-right clearfix">
+            <div class="short-box clearfix">
+                <p>Sıralama</p>
+                <div class="select-box">
+                    <select class="wide">
+                        <option data-display="Popülerlik">Popülerlik</option>
+                        <option value="1">Yeni Gelenler</option>
+                        <option value="2">Çok Satanlar</option>
+                    </select>
+                </div>
+            </div>
+            <div class="menu-box">
+                <a href="#"><i class="icon-Menu"></i></a>
+                <a href="#"><i class="icon-List-View"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 shop-block">
+                    <div class="shop-block-one">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <img src="@item.ImageUrl" alt="@item.ProductName" style="height: 270px; object-fit: cover;">
+                            </figure>
+
+                            <div class="lower-content">
+                                <span class="price-box">@item.Price ₺</span>
+                                <h3><a href="/Shop/Details/@item.ProductId">@item.ProductName</a></h3>
+
+                                <ul class="rating clearfix">
+                                    @for (int i = 0; i < item.Rating; i++)
+                                    {
+                                        <li><i class="icon-Star"></i></li>
+                                    }
+                                </ul>
+
+                                <div class="cart-btn">
+                                    <a href="/Basket/AddBasket/@item.ProductId" class="theme-btn-two">Sepete Ekle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-warning">Henüz ürün eklenmemiş.</div>
+            </div>
+        }
+    </div>
+
+    <div class="pagination-wrapper centred">
+        <ul class="pagination">
+            <li><a href="#">Geri</a></li>
+            <li><a href="#" class="active">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">İleri</a></li>
+        </ul>
+    </div>
+</div>

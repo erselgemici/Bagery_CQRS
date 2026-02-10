@@ -1,0 +1,45 @@
+@model List<GetProductQueryResult>
+
+<section class="shop-section" style="background-image: url(/assets/images/background/shop-1.jpg);">
+    <div class="auto-container">
+        <div class="sec-title">
+            <p>Mağazamız</p>
+            <h2>Lezzetli Ürünlerimizi <br />Keşfedin.</h2>
+        </div>
+
+        <div class="four-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+
+            @foreach (var item in Model)
+            {
+                <div class="shop-block-one">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="@item.ImageUrl" alt="@item.ProductName" style="height: 270px; object-fit: cover;">
+                        </figure>
+                        <div class="lower-content">
+                            <span class="price-box">@item.Price ₺</span>
+
+                            <span style="font-size: 12px; color: #ffab00; font-weight: bold; text-transform: uppercase;">
+                                @item.CategoryName
+                            </span>
+
+                            <h3><a href="/Shop/Details/@item.ProductId">@item.ProductName</a></h3>
+
+                            <ul class="rating clearfix">
+                                @for (int i = 0; i < item.Rating; i++)
+                                {
+                                    <li><i class="icon-Star"></i></li>
+                                }
+                            </ul>
+
+                            <div class="cart-btn">
+                                <a href="/Shop/Details/@item.ProductId" class="theme-btn-two">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

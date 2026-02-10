@@ -1,0 +1,77 @@
+@using MyAcademyCQRS.CQRSPattern.Results.ContactInfoResults
+@model List<GetContactInfoQueryResult>
+
+<section class="contact-section sec-pad" style="background-image: url(/assets/images/background/contact-1.jpg);">
+    <div class="auto-container">
+
+        <div class="sec-title centred">
+            <p>İletişim</p>
+            <h2>Bize Ulaşın</h2>
+        </div>
+
+        <div class="row clearfix">
+
+            <div class="col-lg-4 col-md-6 col-sm-12 info-column">
+                <div class="contact-info-inner">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="single-box">
+                            <h3>Çalışma Saatleri</h3>
+                            <ul class="list clearfix">
+                                <li>@item.OpenHours</li>
+                                <li>Pazar: Kapalı</li>
+                            </ul>
+                        </div>
+                        <div class="single-box">
+                            <h3>İletişim Bilgileri</h3>
+                            <ul class="list clearfix">
+                                <li>@item.Address</li>
+                                <li><a href="mailto:@item.Email">@item.Email</a></li>
+                                <li><a href="tel:@item.Phone">@item.Phone</a></li>
+                            </ul>
+                        </div>
+                        <div class="single-box">
+                            <h3>Sosyal Medya</h3>
+                            <ul class="social-links clearfix">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-6 col-sm-12 form-column">
+                <div class="form-inner">
+                    <h3>Bize Yazın</h3>
+                    <form method="post" action="#" id="contact-form" class="default-form">
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="text" name="Name" placeholder="Adınız *" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                <input type="email" name="Email" placeholder="E-Posta *" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                <input type="text" name="Phone" required="" placeholder="Telefon">
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                <input type="text" name="Subject" required="" placeholder="Konu">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <textarea name="Message" placeholder="Mesajınız ..."></textarea>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                <button class="theme-btn-one" type="submit" name="submit-form">Gönder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,53 @@
+@using MyAcademyCQRS.CQRSPattern.Results.AboutResults
+@model List<GetAboutQueryResult>
+
+<section class="ourstory-section sec-pad" style="background-image: url(/assets/images/background/mission-1.jpg);">
+    <div class="auto-container">
+
+        @foreach (var item in Model)
+        {
+            <div class="sec-title centred">
+                <p>Hikayemiz</p>
+                <h2>@item.Title</h2>
+            </div>
+
+            <div class="row align-items-center clearfix">
+
+                <div class="col-lg-4 col-md-6 col-sm-12 content-column">
+                    <div id="content_block_1">
+                        <div class="content-box">
+                            <h3>@item.SubTitle</h3>
+                            <p>@item.Description</p>
+                            <figure class="signature"><img src="@item.SignatureUrl" alt=""></figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 image-column">
+                    <figure class="image-box wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <img src="@item.ImageUrl" alt="">
+                    </figure>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 content-column">
+                    <div id="content_block_2">
+                        <div class="content-box">
+                            <h3>Bagery Genel Bakış</h3>
+                            <p>Müşterilerimize en taze ve en lezzetli ürünleri sunmak için 1970'ten beri çalışıyoruz.</p>
+                            <ul class="list clearfix">
+                                <li><i class="icon-Check-mark"></i>Günlük Taze Üretim.</li>
+                                <li><i class="icon-Check-mark"></i>Doğal Malzemeler.</li>
+                                <li><i class="icon-Check-mark"></i>Geleneksel Tarifler.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+        <div class="more-btn centred">
+            <a href="/Contact/Index" class="theme-btn-one">İletişime Geç</a>
+        </div>
+    </div>
+</section>

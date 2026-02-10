@@ -1,0 +1,32 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.SliderCommands.CreateSliderCommand
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-plus-circle"></i> Yeni Slayt Ekle</h3>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Slayt Başlığı</label>
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Buton Yönlendirme Linki</label>
+                <input type="text" asp-for="ButtonUrl" class="form-control" placeholder="Örn: /Contact/Index" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Görsel URL (Geniş Resim Önerilir)</label>
+            <input type="text" asp-for="ImageUrl" class="form-control" placeholder="https://..." />
+        </div>
+
+        <div class="mb-3">
+            <label>Açıklama / Slogan</label>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-primary"><i class="fas fa-save"></i> Kaydet</button>
+    </form>
+</div>

@@ -1,0 +1,85 @@
+@model List<GetPhotoGalleryQueryResult>
+
+@{ 
+    var categories = Model.Select(x => x.FilterTag).Distinct().ToList();
+
+    int categoryCount = 1;
+    int contentCount = 1;
+}
+
+<section class="project-section" style="background-image: url(/assets/images/background/gallery-1.jpg);">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <div class="col-lg-4 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="sec-title">
+                        <p>Fotoğraf Galerisi</p>
+                        <h2>Galerimize Göz Atın</h2>
+                    </div>
+                    <div class="text">
+                        <p>En taze ürünlerimiz, özel tasarımlarımız ve mutfağımızdan kareler.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-12 col-sm-12 porject-column">
+                <div class="project-tab">
+
+                    <div class="tab-btn-box clearfix">
+                        <ul class="project-tab-btns project-btn tab-btns clearfix post-filter pull-right">
+                            @foreach (var cat in categories)
+                            {
+                                var activeClass = categoryCount == 1 ? "active-btn" : "";
+
+                                <li class="p-tab-btn @activeClass" data-tab="#p-tab-@categoryCount">@cat</li>
+
+                                categoryCount++; 
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="tabs-content-inner">
+                        <div class="p-tabs-content">
+
+                            @foreach (var cat in categories)
+                            {
+                                var activeClass = contentCount == 1 ? "active-tab" : "";
+
+                                <div class="p-tab @activeClass" id="p-tab-@contentCount">
+                                    <div class="project-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+
+                                        @foreach (var item in Model.Where(x => x.FilterTag == cat))
+                                        {
+                                            <div class="project-block-one">
+                                                <div class="inner-box">
+                                                    <figure class="image-box">
+                                                        <img src="@item.ImageUrl" alt="@item.Title" style="height: 300px; object-fit: cover;">
+                                                    </figure>
+                                                    <div class="lower-content">
+                                                        <div class="view-btn">
+                                                            <a href="@item.ImageUrl" class="lightbox-image" data-fancybox="gallery">
+                                                                <i class="icon-Zoom"></i>
+                                                            </a>
+                                                        </div>
+                                                        <h3><a href="#">@item.Title</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+
+                                contentCount++;
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

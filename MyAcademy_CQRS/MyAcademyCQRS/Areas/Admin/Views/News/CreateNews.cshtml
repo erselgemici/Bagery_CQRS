@@ -1,0 +1,43 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.NewsCommands.CreateNewsCommand
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-plus-circle"></i> Yeni Haber Ekle</h3>
+    <form method="post">
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Haber Başlığı</label>
+                <input type="text" asp-for="Title" class="form-control" placeholder="Örn: Yeni Şubemiz Açıldı" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Kategori</label>
+                <input type="text" asp-for="CategoryName" class="form-control" placeholder="Örn: Duyurular, Etkinlikler..." />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label>Tarih</label>
+                <input type="date" asp-for="Date" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Yazar</label>
+                <input type="text" asp-for="Author" class="form-control" placeholder="Yazar Adı" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label>Görsel URL</label>
+                <input type="text" asp-for="ImageUrl" class="form-control" placeholder="https://..." />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>İçerik / Açıklama</label>
+            <textarea asp-for="Description" class="form-control" rows="6" placeholder="Haber detaylarını buraya yazınız..."></textarea>
+        </div>
+
+        <button class="btn btn-bagery-primary"><i class="fas fa-save"></i> Kaydet</button>
+    </form>
+</div>

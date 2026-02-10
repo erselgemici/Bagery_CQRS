@@ -1,0 +1,36 @@
+@model List<GetTestimonialQueryResult>
+
+<section class="testimonial-section sec-pad" style="background-image: url(/assets/images/background/testimonial-1.jpg);">
+    <figure class="image-layer wow slideInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+        <img src="~/assets/images/resource/testimonial-1.png" alt="">
+    </figure>
+
+    <div class="auto-container">
+        <div class="inner-box">
+            <div class="sec-title">
+                <p>Referanslar</p>
+                <h2>Müşterilerimiz Bagery Hakkında <br />Ne Diyor?</h2>
+            </div>
+
+            <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+
+                @foreach (var item in Model)
+                {
+                    <div class="testimonial-block-one">
+                        <div class="icon-box" style="background-image: url(/assets/images/icons/icon-bg-5.png);">
+                            <i class="icon-Quote"></i>
+                        </div>
+                        <div class="text">
+                            <p>@item.Comment</p>
+                        </div>
+                        <div class="author-info">
+                            <h4>@item.Name</h4>
+                            <span class="designation">@item.Title</span>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

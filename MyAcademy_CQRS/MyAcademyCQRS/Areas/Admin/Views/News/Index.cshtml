@@ -1,0 +1,63 @@
+@model List<MyAcademyCQRS.CQRSPattern.Results.NewsResults.GetNewsQueryResult>
+@{
+    ViewData["Title"] = "Haber Listesi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="admin-title mb-0" style="border:none; padding:0; margin:0;">
+            <i class="fas fa-newspaper"></i> Haberler
+        </h3>
+        <div class="d-flex align-items-center gap-2">
+            <a href="/Admin/News/CreateNews" class="btn btn-bagery-primary">
+                <i class="fas fa-plus"></i> Yeni Haber Ekle
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">Görsel</th>
+                    <th>Başlık</th>
+                    <th>Kategori</th>
+                    <th>Tarih</th>
+                    <th>Yazar</th>
+                    <th style="text-align: right; padding-right: 20px;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="padding-left: 20px;">
+                            <img src="@item.ImageUrl" style="width: 60px; height: 60px; border-radius: 10px; object-fit: cover; border: 2px solid #eee;" />
+                        </td>
+                        <td style="font-weight: 600; color: #333;">@item.Title</td>
+                        <td>
+                            <span class="badge" style="background-color: #e0f7fa; color: #006064; border: 1px solid #b2ebf2;">
+                                @item.CategoryName
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-muted" style="font-size: 0.9em;">
+                                <i class="far fa-calendar-alt"></i> @item.Date.ToString("dd.MM.yyyy")
+                            </span>
+                        </td>
+                        <td style="font-style: italic; color: #666;">@item.Author</td>
+                        <td style="text-align: right; padding-right: 20px;">
+                            <a href="/Admin/News/UpdateNews/@item.NewsId" class="btn btn-bagery-mint btn-sm" style="margin-right: 5px;">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/Admin/News/DeleteNews/@item.NewsId" class="btn btn-action-delete btn-sm btn-delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

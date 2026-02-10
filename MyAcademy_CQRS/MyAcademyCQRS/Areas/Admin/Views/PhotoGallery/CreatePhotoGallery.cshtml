@@ -1,0 +1,28 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.PhotoGalleryCommands.CreatePhotoGalleryCommand
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-plus-circle"></i> Yeni Fotoğraf Ekle</h3>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Başlık</label>
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Filtre Etiketi</label>
+                <input type="text" asp-for="FilterTag" class="form-control" placeholder="Örn: Tatlılar, Mekan..." />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Fotoğraf Seç</label>
+            <input type="file" asp-for="Photo" class="form-control" />
+        </div>
+
+        <button class="btn btn-bagery-primary"><i class="fas fa-save"></i> Kaydet</button>
+    </form>
+</div>

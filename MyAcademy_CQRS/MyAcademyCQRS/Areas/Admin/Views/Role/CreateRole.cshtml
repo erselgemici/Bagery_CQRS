@@ -1,0 +1,15 @@
+@model MyAcademyCQRS.Entities.AppRole
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-plus-circle"></i> Yeni Rol Oluştur</h3>
+    <form method="post">
+        <div class="mb-3">
+            <label>Rol Adı (Örn: Chef, Moderator)</label>
+            <input type="text" asp-for="Name" class="form-control" required />
+        </div>
+        <button class="btn btn-modern btn-modern-primary">Kaydet</button>
+    </form>
+</div>

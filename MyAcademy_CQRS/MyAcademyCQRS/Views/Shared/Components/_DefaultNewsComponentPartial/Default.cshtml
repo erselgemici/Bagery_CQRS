@@ -1,0 +1,41 @@
+@model List<GetNewsQueryResult>
+
+<section class="news-section sec-pad" style="background-image: url(/assets/images/background/news-bg-1.jpg);">
+    <div class="auto-container">
+        <div class="sec-title centred">
+            <p>TAKİPTE KALIN</p>
+            <h2>Bagery Haberlerinden <br />Daha Fazlasını Öğrenin</h2>
+        </div>
+        <div class="row clearfix">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <span class="category">@item.CategoryName</span>
+                                <a href="/Blog/Details/@item.NewsId">
+                                    <img src="@item.ImageUrl" alt="@item.Title" style="height: 250px; object-fit: cover;">
+                                </a>
+                            </figure>
+                            <div class="lower-content">
+                                <ul class="post-info clearfix">
+                                    <li>@item.Date.ToString("dd MMM, yyyy")</li>
+                                    <li>/</li>
+                                    <li><a href="#">by @item.Author</a></li>
+                                </ul>
+                                <h3><a href="/Blog/Details/@item.NewsId">@item.Title</a></h3>
+                                <p>@item.Description</p>
+                                <div class="btn-box">
+                                    <a href="/Blog/Details/@item.NewsId" class="theme-btn-two">Devamını Oku</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

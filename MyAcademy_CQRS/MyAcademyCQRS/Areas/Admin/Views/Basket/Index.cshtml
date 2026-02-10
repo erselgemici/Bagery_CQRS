@@ -1,0 +1,58 @@
+@model List<MyAcademyCQRS.CQRSPattern.Results.BasketResults.GetBasketQueryResult>
+@{
+    ViewData["Title"] = "Sepet Listesi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="admin-title mb-0" style="border:none; padding:0; margin:0;">
+            <i class="fas fa-shopping-basket"></i> Sepet Hareketleri
+        </h3>
+        <div class="d-flex align-items-center gap-2">
+            <a href="/Admin/Basket/CreateBasket" class="btn btn-bagery-primary">
+                <i class="fas fa-plus"></i> Sepete Ekle
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">Ürün</th>
+                    <th>Birim Fiyat</th>
+                    <th>Adet</th>
+                    <th>Toplam</th>
+                    <th style="text-align: right; padding-right: 20px;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="padding-left: 20px;">
+                            <div class="d-flex align-items-center">
+                                <img src="@item.ProductImage" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; margin-right: 10px; border:1px solid #eee;" />
+                                <span style="font-weight: 600;">@item.ProductName</span>
+                            </div>
+                        </td>
+                        <td>₺@item.Price</td>
+                        <td>
+                            <span class="badge" style="background: var(--bagery-mint); font-size: 0.9em;">@item.Quantity Adet</span>
+                        </td>
+                        <td style="font-weight: bold; color: var(--bagery-salmon);">₺@item.TotalRowPrice</td>
+                        <td style="text-align: right; padding-right: 20px;">
+                            <a href="/Admin/Basket/UpdateBasket/@item.BasketItemId" class="btn btn-bagery-mint btn-sm" style="margin-right: 5px;">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/Admin/Basket/DeleteBasket/@item.BasketItemId" class="btn btn-action-delete btn-sm btn-delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+@model MyAcademyCQRS.CQRSPattern.Results.ContactInfoResults.GetContactInfoByIdQueryResult
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-edit"></i> İletişim Bilgisi Güncelle</h3>
+    <form method="post">
+        <input type="hidden" asp-for="ContactInfoId" />
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Telefon</label>
+                <input type="text" asp-for="Phone" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Email</label>
+                <input type="email" asp-for="Email" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Çalışma Saatleri</label>
+                <input type="text" asp-for="OpenHours" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Harita URL (Embed)</label>
+                <input type="text" asp-for="MapUrl" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Adres</label>
+            <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-mint"><i class="fas fa-sync-alt"></i> Güncelle</button>
+    </form>
+</div>

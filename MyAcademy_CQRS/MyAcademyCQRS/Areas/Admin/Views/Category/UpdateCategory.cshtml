@@ -1,0 +1,25 @@
+@model MyAcademyCQRS.Entities.Category
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title">
+        <i class="fas fa-edit"></i> Kategori Güncelle
+    </h3>
+
+    <form method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <label style="font-weight: 500; color: #666; margin-bottom: 5px;">Kategori Adı</label>
+                <input type="text" asp-for="CategoryName" class="form-control" required />
+            </div>
+        </div>
+
+        <button class="btn btn-bagery-mint">
+            <i class="fas fa-sync-alt"></i> Güncelle
+        </button>
+    </form>
+</div>

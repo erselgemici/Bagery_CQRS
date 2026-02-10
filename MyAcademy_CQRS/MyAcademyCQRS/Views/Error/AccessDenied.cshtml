@@ -1,0 +1,72 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Erişim Engellendi</title>
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Rubik', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .error-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #d65d5d;
+            font-size: 80px;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .btn-home {
+            background-color: #333;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+            .btn-home:hover {
+                background-color: #d65d5d;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div class="error-card">
+        <h1>403</h1>
+        <h3>Giriş Yetkiniz Yok!</h3>
+        <p>Üzgünüz, bu sayfaya erişim yetkiniz bulunmuyor. Burası sadece yetkili personele (Admin) özeldir.</p>
+        <a href="/" class="btn-home">Anasayfaya Dön</a>
+    </div>
+</body>
+</html>

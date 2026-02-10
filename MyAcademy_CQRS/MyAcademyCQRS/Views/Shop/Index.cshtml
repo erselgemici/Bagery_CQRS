@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Mağaza";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+}
+
+@await Component.InvokeAsync("_ShopPageTitleComponentPartial")
+
+<section class="shop-page-section shop-page-1">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <div class="col-lg-3 col-md-12 col-sm-12 sidebar-side">
+                @await Component.InvokeAsync("_ShopSidebarComponentPartial")
+            </div>
+
+            <div class="col-lg-9 col-md-12 col-sm-12 content-side">
+                @await Component.InvokeAsync("_ShopProductListComponentPartial")
+            </div>
+
+        </div>
+    </div>
+</section>
+
+

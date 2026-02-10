@@ -1,0 +1,27 @@
+@model MyAcademyCQRS.CQRSPattern.Commands.FeatureCommands.CreateFeatureCommand
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <h3 class="admin-title"><i class="fas fa-plus-circle"></i> Yeni Özellik Ekle</h3>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Başlık</label>
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Sayaç / Değer</label>
+                <input type="text" asp-for="Counter" class="form-control" placeholder="Örn: 1500+" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Açıklama</label>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn-bagery-primary"><i class="fas fa-save"></i> Kaydet</button>
+    </form>
+</div>

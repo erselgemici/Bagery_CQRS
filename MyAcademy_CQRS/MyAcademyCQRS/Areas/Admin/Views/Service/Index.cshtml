@@ -1,0 +1,53 @@
+@model List<MyAcademyCQRS.CQRSPattern.Results.ServiceResults.GetServiceQueryResult>
+@{
+    ViewData["Title"] = "Hizmetler";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-custom">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="admin-title mb-0" style="border:none; padding:0; margin:0;">
+            <i class="fas fa-concierge-bell"></i> Hizmet Listesi
+        </h3>
+        <div class="d-flex align-items-center gap-2">
+            <a href="/Admin/Service/CreateService" class="btn btn-bagery-primary">
+                <i class="fas fa-plus"></i> Yeni Hizmet
+            </a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="padding-left: 20px;">İkon</th>
+                    <th>Başlık</th>
+                    <th>Açıklama</th>
+                    <th style="text-align: right; padding-right: 20px;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="padding-left: 20px;">
+                            <div style="width: 40px; height: 40px; background: #e0f7fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bagery-main);">
+                                <i class="@item.IconClass fa-lg"></i>
+                            </div>
+                        </td>
+                        <td style="font-weight: 600;">@item.Title</td>
+                        <td style="color: #666;">@item.Description</td>
+                        <td style="text-align: right; padding-right: 20px;">
+                            <a href="/Admin/Service/UpdateService/@item.ServiceId" class="btn btn-bagery-mint btn-sm" style="margin-right: 5px;">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/Admin/Service/DeleteService/@item.ServiceId" class="btn btn-action-delete btn-sm btn-delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

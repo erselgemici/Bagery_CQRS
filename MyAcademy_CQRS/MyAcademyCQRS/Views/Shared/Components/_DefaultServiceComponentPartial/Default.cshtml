@@ -1,0 +1,32 @@
+@model List<GetServiceQueryResult>
+
+<section class="service-section sec-pad centred" style="background-image: url(/assets/images/background/service-1.jpg);">
+    <div class="auto-container">
+        <div class="sec-title">
+            <p>Hizmetlerimiz</p>
+            <h2>Kalite & Tutku ile <br />Sizin İçin Üretiyoruz!</h2>
+        </div>
+        <div class="row clearfix">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 service-block">
+                    <div class="service-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box wow fadeInDown animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="bg-layer" style="background-image: url(/assets/images/icons/icon-bg-3.png);"></div>
+                                <i class="@item.IconClass"></i>
+                            </div>
+                            <div class="lower-content wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <h3><a href="/Service/Index">@item.Title</a></h3>
+                                <p>@item.Description</p>
+                                <div class="btn-box"><a href="/Service/Index">Devamını Oku</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

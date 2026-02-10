@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>@ViewData["Title"] - Bagery Mağaza</title>
+
+    <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="~/assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="~/assets/css/flaticon.css" rel="stylesheet">
+    <link href="~/assets/css/owl.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="~/assets/css/animate.css" rel="stylesheet">
+    <link href="~/assets/css/color.css" rel="stylesheet">
+
+    <link href="~/assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="~/assets/css/nice-select.css" rel="stylesheet">
+
+    <link href="~/assets/css/global.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/responsive.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <div class="boxed_wrapper">
+
+        @await Component.InvokeAsync("_DefaultHeaderComponentPartial")
+        @RenderBody()
+
+        <footer class="main-footer" style="background-image: url(/assets/images/background/footer-1.jpeg);">
+            @await Component.InvokeAsync("_DefaultFooterComponentPartial")
+        </footer>
+
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <span class="icon-Arrow-Up"></span>
+        </button>
+    </div>
+
+    <script src="~/assets/js/jquery.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/owl.js"></script>
+    <script src="~/assets/js/wow.js"></script>
+    <script src="~/assets/js/validation.js"></script>
+    <script src="~/assets/js/jquery.fancybox.js"></script>
+    <script src="~/assets/js/appear.js"></script>
+    <script src="~/assets/js/jquery.countTo.js"></script>
+    <script src="~/assets/js/scrollbar.js"></script>
+    <script src="~/assets/js/nav-tool.js"></script>
+
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/js/jquery-ui.js"></script>
+
+    <script src="~/assets/js/script.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    @if (TempData["icon"] != null)
+    {
+        <script>
+            Swal.fire({
+                title: '@Html.Raw(TempData["title"])',
+                icon: '@TempData["icon"]',
+                // input satırını tamamen sildim, varsayılan olarak çıkmaz.
+                html: `
+                    <div style="text-align: left; font-size: 14px; color: #555;">
+                        <p style="text-align: center; font-size: 16px; margin-bottom: 10px; color: #333;">
+                            Siparişiniz bize ulaştı. Hazırlanmaya başlıyor! 🚀
+                        </p>
+                        <hr style="border-top: 1px dashed #ccc; margin: 10px 0;">
+                        <table style="width: 100%; margin-top: 10px;">
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Sipariş No:</strong></td>
+                                <td style="text-align: right;">#@TempData["OrderId"]</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Tarih:</strong></td>
+                                <td style="text-align: right;">@TempData["Date"]</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 0;"><strong>Ödeme Tipi:</strong></td>
+                                <td style="text-align: right;">Kapıda Ödeme</td>
+                            </tr>
+                            <tr style="border-top: 1px solid #eee;">
+                                <td style="padding-top: 10px; font-size: 18px; color: #d65d5d; font-weight: bold;">Toplam:</td>
+                                <td style="text-align: right; padding-top: 10px; font-size: 18px; color: #d65d5d; font-weight: bold;">@TempData["TotalPrice"] ₺</td>
+                            </tr>
+                        </table>
+                    </div>
+                `,
+                showConfirmButton: true,
+                confirmButtonText: 'Anasayfaya Dön',
+                confirmButtonColor: '#d65d5d',
+                background: '#fff url(/assets/images/background/pattern-1.png)',
+                backdrop: `rgba(0,0,0,0.4)`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/Home/Index";
+                }
+            });
+        </script>
+    }
+
+</body>
+</html>

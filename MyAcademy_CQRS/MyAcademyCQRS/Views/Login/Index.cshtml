@@ -1,0 +1,209 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Bagery</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="~/assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bagery-mint: #9CD1CD;
+            --bagery-salmon: #E69B88;
+            --bagery-salmon-dark: #d48a77;
+        }
+
+        body {
+            /* Arka plana hafif bir mint filtresi attık */
+            background: linear-gradient(rgba(43, 33, 24, 0.4), rgba(43, 33, 24, 0.4)), url('/assets/images/background/page-title.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border-top: 6px solid var(--bagery-salmon); /* SOMON RENGİ ÇİZGİ */
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-logo img {
+            max-width: 160px;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+
+            .login-logo img:hover {
+                transform: scale(1.05);
+            }
+
+        .sec-title h3 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .sec-title p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-radius: 50px;
+        }
+
+        .input-group-text {
+            background: #fff;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            padding-left: 20px;
+            color: var(--bagery-mint); /* İKONLAR MINT YEŞİLİ */
+            font-size: 1.1em;
+        }
+
+        .form-control {
+            border: none;
+            height: 55px;
+            border-radius: 0 50px 50px 0;
+            padding-left: 10px;
+            font-size: 15px;
+            background: #fff;
+        }
+
+            .form-control:focus {
+                box-shadow: none;
+                background: #fff;
+            }
+
+        /* BUTON (Somon Gradyan) */
+        .theme-btn-one {
+            background: linear-gradient(45deg, var(--bagery-salmon), var(--bagery-salmon-dark));
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(230, 155, 136, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .theme-btn-one:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(230, 155, 136, 0.6);
+                background: linear-gradient(45deg, var(--bagery-salmon-dark), var(--bagery-salmon));
+            }
+
+        .bottom-text {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #777;
+        }
+
+            .bottom-text a {
+                color: var(--bagery-salmon);
+                font-weight: 600;
+                text-decoration: none;
+                margin-left: 5px;
+            }
+
+                .bottom-text a:hover {
+                    text-decoration: underline;
+                    color: var(--bagery-salmon-dark);
+                }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #999;
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .home-link:hover {
+                color: var(--bagery-salmon);
+            }
+    </style>
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-logo">
+                <a href="/"><img src="~/assets/images/logo.png" alt="Bagery Logo"></a>
+            </div>
+
+            <div class="sec-title">
+                <h3>Hoş Geldiniz!</h3>
+                <p>Lezzet dolu dünyaya giriş yapın.</p>
+            </div>
+
+            <form method="post" action="/Login/Index">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" name="username" class="form-control" placeholder="Kullanıcı Adınız" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" name="password" class="form-control" placeholder="Şifreniz" required>
+                </div>
+
+                <div class="form-group" style="margin-top: 30px;">
+                    <button type="submit" class="theme-btn-one">Giriş Yap</button>
+                </div>
+            </form>
+
+            <div class="bottom-text">
+                Hesabınız yok mu? <a href="/Login/Register">Hemen Kayıt Olun</a>
+            </div>
+            <a href="/" class="home-link"><i class="fas fa-arrow-left"></i> Anasayfaya Dön</a>
+        </div>
+    </div>
+
+</body>
+</html>
